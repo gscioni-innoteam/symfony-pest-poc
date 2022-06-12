@@ -11,7 +11,7 @@ docker_exec := $(compose) exec
 docker_run := $(compose) run --rm
 args = $(filter-out $@,$(MAKECMDGOALS))
 
-.PHONY: start stop up enter erase stan csfix composer coverage
+.PHONY: start stop up enter erase stan csfix composer coverage test
 
 build: ## Builds the Docker images
 	@$(docker) build --pull --no-cache
@@ -40,8 +40,11 @@ csfix: ## Execute php-cs-fixer
 composer: ## Execute composer
 	@$(docker_run) $(php_container) composer $(call args)
 
-coverage: ## avvia la batteria di test con coverage
+coverage: ## Execute entire tests with coverage metrics
 	@$(docker_run) $(php_container) sh -lc "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage"
+
+test: ## Execute entire tests
+	@$(docker_run) $(php_container) sh -lc "./vendor/bin/pest"
 
 .PHONY: help
 help: ## Show this help message

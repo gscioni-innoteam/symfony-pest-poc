@@ -12,7 +12,7 @@ class DoSomethingService implements DoSomethingInterface
     public function makeMeHappy(HappinessDTO $dto): string
     {
         return match ($dto->getHappinessValue()) {
-            1,2,3,4,5 => 'sad',
+            0,1,2,3,4,5 => 'sad',
             default => 'happy'
         };
     }

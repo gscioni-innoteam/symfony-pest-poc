@@ -2,7 +2,7 @@ Pest Laravel PoC
 ========================
 POC dell'utilizzo di PestPHP su Symfony in BDD/TDD.
 
-![Symfony 6.1.1](https://img.shields.io/badge/Symfony-6.1.1-purple.svg?style=flat-square&logo=laravel)
+![Symfony 6.1.1](https://img.shields.io/badge/Symfony-6.1.1-purple.svg?style=flat-square&logo=symfony)
 ![Php 8.1.4](https://img.shields.io/badge/Php-8.1.4-blue.svg?style=flat-square&logo=php)
 
 ## Stack

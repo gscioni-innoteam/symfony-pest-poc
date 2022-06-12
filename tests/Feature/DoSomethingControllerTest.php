@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 uses(WebTestCase::class);
 
-it('should be happy', function (int $value, string $result) {
+it('should call happiness endpoint', function (int $value, string $result) {
     $client = static::createClient();
     $client->request('GET', '/happiness/' . $value);
 
@@ -14,9 +14,4 @@ it('should be happy', function (int $value, string $result) {
 
     $this->assertResponseIsSuccessful();
     $this->assertEquals($result, $arrayResponse['status']);
-})->with(static function (): ?\Generator {
-    yield [7, 'happy'];
-    yield [5, 'sad'];
-    yield [10, 'happy'];
-    yield [1, 'sad'];
-});
+})->with('happiness_dataset');
